@@ -396,7 +396,7 @@ release: clean-release  ## Builds and push container images using the latest git
 
 .PHONY: release-manifests
 release-manifests: $(KUSTOMIZE) $(RELEASE_DIR) ## Builds the manifests to publish with a release
-	kustomize build config/default > $(RELEASE_DIR)/infrastructure-components.yaml
+	$(KUSTOMIZE) build config/default > $(RELEASE_DIR)/infrastructure-components.yaml
 
 .PHONY: release-templates
 release-templates: $(RELEASE_DIR)
