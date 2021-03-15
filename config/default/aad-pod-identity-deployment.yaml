@@ -76,7 +76,7 @@ metadata:
   labels:
     component: nmi
     tier: node
-    k8s-app: aad-pod-id    
+    k8s-app: aad-pod-id
   name: nmi
   namespace: capz-system
 spec:
@@ -102,19 +102,19 @@ spec:
         name: iptableslock
       - name: kubelet-config
         hostPath:
-          path: /etc/default/kubelet  
+          path: /etc/default/kubelet
       containers:
       - name: nmi
         image: "mcr.microsoft.com/oss/azure/aad-pod-identity/nmi:v1.7.1"
         imagePullPolicy: Always
         args:
           - "--node=$(NODE_NAME)"
-          - "--forceNamespaced"          
+          - "--forceNamespaced"
           - "--http-probe-port=8085"
           - "--operation-mode=managed"
         env:
           - name: FORCENAMESPACED
-            value: "true"  
+            value: "true"
           - name: HOST_IP
             valueFrom:
               fieldRef:
@@ -140,7 +140,7 @@ spec:
           name: iptableslock
         - name: kubelet-config
           mountPath: /etc/default/kubelet
-          readOnly: true  
+          readOnly: true
         livenessProbe:
           httpGet:
             path: /healthz
