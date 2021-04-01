@@ -155,13 +155,12 @@ spec:
       sshPublicKey: ""
       vmSize: ${AZURE_CONTROL_PLANE_MACHINE_TYPE}
       image:
-        id: /subscriptions/d38033ba-ec21-470c-96cf-4c6db9658d8b/resourceGroups/mat-dev/providers/Microsoft.Compute/images/flatcar-stable-capz3
-        #marketplace:
-        #  offer: flatcar-container-linux-free
-        #  publisher: kinvolk
-        #  sku: stable
-        #  version: 2765.2.1
-        #  thirdPartyImage: true
+        sharedGallery:
+          gallery: capz_testing
+          name: capi-flatcar-container-linux-stable
+          resourceGroup: mat-dev
+          subscriptionID: d38033ba-ec21-470c-96cf-4c6db9658d8b
+          version: 0.3.1616181035
 ---
 apiVersion: cluster.x-k8s.io/v1alpha4
 kind: MachineDeployment
@@ -204,13 +203,12 @@ spec:
       sshPublicKey: ""
       vmSize: ${AZURE_NODE_MACHINE_TYPE}
       image:
-        id: /subscriptions/d38033ba-ec21-470c-96cf-4c6db9658d8b/resourceGroups/mat-dev/providers/Microsoft.Compute/images/flatcar-stable-capz3
-        #marketplace:
-        #  offer: flatcar-container-linux-free
-        #  publisher: kinvolk
-        #  sku: stable
-        #  version: 2765.2.1
-        #  thirdPartyImage: true
+        sharedGallery:
+          gallery: capz_testing
+          name: capi-flatcar-container-linux-stable
+          resourceGroup: mat-dev
+          subscriptionID: d38033ba-ec21-470c-96cf-4c6db9658d8b
+          version: 0.3.1616181035
 ---
 apiVersion: bootstrap.cluster.x-k8s.io/v1alpha4
 kind: KubeadmConfigTemplate
